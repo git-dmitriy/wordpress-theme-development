@@ -3,6 +3,7 @@
 
 $data = require_once('data.php');
 $aboutData = $data['about'];
+$educationData = $data['education'];
 
 
 ?>
@@ -66,17 +67,21 @@ $aboutData = $data['about'];
             <!--//contact-container-->
             <div class="education-container container-block">
                 <h2 class="container-block-title">Education</h2>
+
+
+                <? foreach($educationData as $education) {?>
                 <div class="item">
-                    <h4 class="degree">MSc in Computer Science</h4>
-                    <h5 class="meta">University of London</h5>
-                    <div class="time">2011 - 2012</div>
+                    <h4 class="degree"><?= $education['faculty'] ?></h4>
+                    <h5 class="meta"><?= $education['university'] ?></h5>
+                    <div class="time"><?= $education['yearStart'] ?> - <?= $education['yearEnd'] ?></div>
                 </div>
+                <?}?>
                 <!--//item-->
-                <div class="item">
+                <!-- <div class="item">
                     <h4 class="degree">BSc in Applied Mathematics</h4>
                     <h5 class="meta">Bristol University</h5>
                     <div class="time">2007 - 2011</div>
-                </div>
+                </div> -->
                 <!--//item-->
             </div>
             <!--//education-container-->
