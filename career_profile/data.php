@@ -21,7 +21,11 @@ return [
       'yearStart' => 2009,
       'yearEnd' => 2013
     ]
-
-
+  ],
+  'languages' => [
+    'English', 'Русский'
+  ],
+  'interests' => [
+    'FrontEnd', 'Backend', 'WebDevolpment'
   ]
 ];
