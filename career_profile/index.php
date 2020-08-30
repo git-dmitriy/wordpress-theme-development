@@ -4,7 +4,8 @@
 $data = require_once('data.php');
 $aboutData = $data['about'];
 $educationData = $data['education'];
-
+$langData = $data['languages'];
+$intData = $data['interests'];
 
 ?>
 
@@ -66,7 +67,7 @@ $educationData = $data['education'];
             </div>
             <!--//contact-container-->
             <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
+                <h2 class="container-block-title">Образование</h2>
 
 
                 <? foreach($educationData as $education) {?>
@@ -77,31 +78,28 @@ $educationData = $data['education'];
                 </div>
                 <?}?>
                 <!--//item-->
-                <!-- <div class="item">
-                    <h4 class="degree">BSc in Applied Mathematics</h4>
-                    <h5 class="meta">Bristol University</h5>
-                    <div class="time">2007 - 2011</div>
-                </div> -->
-                <!--//item-->
             </div>
             <!--//education-container-->
 
             <div class="languages-container container-block">
-                <h2 class="container-block-title">Languages</h2>
+                <h2 class="container-block-title">Языки</h2>
                 <ul class="list-unstyled interests-list">
-                    <li>English <span class="lang-desc">(Native)</span></li>
-                    <li>French <span class="lang-desc">(Professional)</span></li>
-                    <li>Spanish <span class="lang-desc">(Professional)</span></li>
+                    <li><?= $langData[0] ?> <span class="lang-desc">(Intermediate)</span></li>
+                    <li><?= $langData[1] ?> <span class="lang-desc">(Родной)</span></li>
+
                 </ul>
             </div>
             <!--//interests-->
 
             <div class="interests-container container-block">
-                <h2 class="container-block-title">Interests</h2>
+                <h2 class="container-block-title">Интересы</h2>
                 <ul class="list-unstyled interests-list">
-                    <li>Climbing</li>
-                    <li>Snowboarding</li>
-                    <li>Cooking</li>
+
+                    <? foreach($intData as $elem) { ?>
+                    <li>
+                        <?= $elem ?>
+                    </li>
+                    <?}?>
                 </ul>
             </div>
             <!--//interests-->
