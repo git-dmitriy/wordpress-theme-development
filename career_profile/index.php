@@ -1,3 +1,12 @@
+<?
+
+
+$data = require_once('data.php');
+$aboutData = $data['about'];
+
+
+?>
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -34,16 +43,21 @@
         <div class="sidebar-wrapper">
             <div class="profile-container">
                 <img class="profile" src="assets/images/profile.png" alt="" />
-                <h1 class="name">Alan Doe</h1>
-                <h3 class="tagline">Full Stack Developer</h3>
+                <h1 class="name"><?= $aboutData['name'] ?></h1>
+                <h3 class="tagline"><?= $aboutData['post'] ?></h3>
             </div>
             <!--//profile-container-->
 
             <div class="contact-container container-block">
                 <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa fa-envelope"></i><a href="mailto: yourname@email.com">alan.doe@website.com</a></li>
-                    <li class="phone"><i class="fa fa-phone"></i><a href="tel:0123 456 789">0123 456 789</a></li>
-                    <li class="website"><i class="fa fa-globe"></i><a href="http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/" target="_blank">portfoliosite.com</a></li>
+                    <li class="email">
+                        <i class="fa fa-envelope"></i>
+                        <a href="mailto: <?= $aboutData['name'] ?>"><?= $aboutData['email'] ?>
+                        </a>
+                    </li>
+                    <li class="phone"><i class="fa fa-phone"></i>
+                        <a href="tel:<?= $aboutData['phone'] ?>"><?= $aboutData['phone'] ?></a></li>
+                    <li class="website"><i class="fa fa-globe"></i><a href="http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/" target="_blank"><?= $aboutData['site'] ?></a></li>
                     <li class="linkedin"><i class="fa fa-linkedin"></i><a href="#" target="_blank">linkedin.com/in/alandoe</a></li>
                     <li class="github"><i class="fa fa-github"></i><a href="#" target="_blank">github.com/username</a></li>
                     <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a></li>
