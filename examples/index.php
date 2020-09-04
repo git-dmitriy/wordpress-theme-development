@@ -8,7 +8,7 @@ class Article
   public $border;
   public $bg;
 
-  public function __construct($title, $titleFontSize, $articleBody, $articleBodyFontSize, $border, $bg)
+  public function __construct(string $title, int $titleFontSize, string $articleBody, int $articleBodyFontSize, string $border, string $bg)
   {
     $this->title = $title;
     $this->titleFontSize = $titleFontSize;
