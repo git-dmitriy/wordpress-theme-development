@@ -1,12 +1,12 @@
 <?
-class Article
+abstract class Article
 {
-  public $title;
-  public $titleFontSize;
-  public $articleBody;
-  public $articleBodyFontSize;
-  public $border;
-  public $bg;
+  protected $title;
+  protected $titleFontSize;
+  protected $articleBody;
+  protected $articleBodyFontSize;
+  protected $border;
+  protected $bg;
 
   public function __construct(string $title, int $titleFontSize, string $articleBody, int $articleBodyFontSize, string $border, string $bg)
   {
@@ -27,9 +27,9 @@ class Article
   }
 }
 
-class SportArticle extends Article
+final class SportArticle extends Article
 {
-  public $image;
+  protected $image;
   public function __construct(string $title, int $titleFontSize, string $articleBody, int $articleBodyFontSize, string $border, string $bg, string $image)
   {
     $this->image = $image;
@@ -44,26 +44,29 @@ class SportArticle extends Article
   }
 }
 
-class WeatherArticle extends Article
+final class WeatherArticle extends Article
 {
-  public $temperature;
-  public function __construct(string $title, int $titleFontSize, string $articleBody, int $articleBodyFontSize, string $border, string $bg, string $temperature)
+  protected $temperature;
+  public function __construct(string $title, int $titleFontSize, string $articleBody, int $articleBodyFontSize, string $border, string $bg)
   {
-    $this->temperature = $temperature;
     parent::__construct($title, $titleFontSize, $articleBody, $articleBodyFontSize, $border, $bg);
   }
   public function publishArticle()
   {
     echo "<div style='border: {$this->border}; background: {$this->bg}; font-size: {$this->articleBodyFontSize}px;'>
             <h2>{$this->title}</h2>
-            <p>{$this->articleBody} <span>{$this->temperature}</span></p>
+            <p>{$this->articleBody} <span>{$this->getTemperature()}</span></p>
           </div>";
+  }
+  private function getTemperature()
+  {
+    return '+29 C';
   }
 }
 
-class PoliticsArticle extends Article
+final class PoliticsArticle extends Article
 {
-  public $link;
+  protected $link;
   public function __construct(string $title, int $titleFontSize, string $articleBody, int $articleBodyFontSize, string $border, string $bg, string $link)
   {
     $this->link = $link;
@@ -81,7 +84,7 @@ class PoliticsArticle extends Article
 $sportNews = new SportArticle('Sport news', 20, 'Sport is the foundation of health', 16, '2px dashed red', 'yellow', './../career_profile/assets/images/profile.png');
 $sportNews->publishArticle();
 
-$weatherNews = new WeatherArticle('Weather news', 20, 'Weather is the foundation of leisure', 16, '2px dashed red', 'green', '+29 C');
+$weatherNews = new WeatherArticle('Weather news', 20, 'Weather is the foundation of leisure', 16, '2px dashed red', 'green');
 $weatherNews->publishArticle();
 
 $politicsNews = new PoliticsArticle('Politics news', 20, 'Politics is the foundation of dispute', 16, '2px dashed red', 'pink', 'google.com');
