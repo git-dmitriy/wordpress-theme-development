@@ -59,9 +59,13 @@ $intData = $data['interests'];
                     </li>
                     <li class="phone"><i class="fa fa-phone"></i>
                         <a href="tel:<?= $aboutData['phone'] ?>"><?= $aboutData['phone'] ?></a></li>
-                    <li class="website"><i class="fa fa-globe"></i><a href="http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/" target="_blank"><?= $aboutData['site'] ?></a></li>
-                    <li class="linkedin"><i class="fa fa-linkedin"></i><a href="#" target="_blank">linkedin.com/in/alandoe</a></li>
-                    <li class="github"><i class="fa fa-github"></i><a href="#" target="_blank">github.com/username</a></li>
+                    <li class="website">
+                        <i class="fa fa-globe"></i>
+                        <a href="http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/" target="_blank"><?= $aboutData['site'] ?></a></li>
+                    <li class="linkedin">
+                    <li class="github">
+                        <i class="fa fa-github"></i>
+                        <a href="<?= $aboutData['github'] ?>" target="_blank">github.com/git-dmitriy</a></li>
                     <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a></li>
                 </ul>
             </div>
@@ -110,6 +114,12 @@ $intData = $data['interests'];
         <div class="main-wrapper">
 
             <section class="section summary-section">
+            <? 
+            
+            echo date('h:i:s A');
+            
+            
+            ?>
                 <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
                 <div class="summary">
                     <p>Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can <a href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers/" target="_blank">download this free resume/CV template here</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.</p>
