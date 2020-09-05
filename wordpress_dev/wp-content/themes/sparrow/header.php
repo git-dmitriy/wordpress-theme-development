@@ -2,16 +2,16 @@
 <!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 8)|!(IE)]><!-->
-<html class="no-js" lang="en">
+<html class="no-js" <?php language_attributes(); ?>>
 <!--<![endif]-->
 
 <head>
 
   <!--- Basic Page Needs
    ================================================== -->
-  <meta charset="utf-8">
-  <title>Sparrow - Free Responsive HTML5/CSS3 Template</title>
-  <meta name="description" content="">
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <title><?php bloginfo('name'); ?></title>
+  <meta name="description" content=" <?php bloginfo('description') ?>">
   <meta name="author" content="">
 
   <!-- Mobile Specific Metas
@@ -20,17 +20,17 @@
 
   <!-- CSS
     ================================================== -->
-  <link rel="stylesheet" href="css/default.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/media-queries.css">
+
 
   <!-- Script
    ================================================== -->
-  <script src="js/modernizr.js"></script>
+
 
   <!-- Favicons
 	================================================== -->
   <link rel="shortcut icon" href="favicon.ico">
+
+  <?php wp_head(); ?>
 
 </head>
 
