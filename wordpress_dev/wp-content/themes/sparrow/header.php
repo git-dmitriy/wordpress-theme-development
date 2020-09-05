@@ -45,7 +45,10 @@
       <div class="twelve columns">
 
         <div class="logo">
-          <a href="index.html"><img alt="" src="images/logo.png"></a>
+          <a href="<?php home_url(); ?>">
+            <div><?php bloginfo('name'); ?></div>
+            <img alt="" src="images/logo.png">
+          </a>
         </div>
 
         <nav id="nav-wrap">
