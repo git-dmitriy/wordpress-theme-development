@@ -51,11 +51,36 @@
           </a>
         </div>
 
+
+
         <nav id="nav-wrap">
+          <?php
+          wp_nav_menu([
+            'theme_location'  => 'top',
+            'menu'            => '',
+            'container'       => 'false',
+            'container_class' => '',
+            'container_id'    => '',
+            'menu_class'      => 'nav',
+            'menu_id'         => 'nav',
+            'echo'            => true,
+            'fallback_cb'     => 'wp_page_menu',
+            'before'          => '',
+            'after'           => '',
+            'link_before'     => '',
+            'link_after'      => '',
+            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+            'depth'           => 0,
+            'walker'          => '',
+          ]);
+          ?>
+
 
           <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
           <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
+
+<!-- 
           <ul id="nav" class="nav">
 
             <li class="current"><a href="index.htm">Home</a></li>
@@ -75,7 +100,7 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="styles.html">Features</a></li>
 
-          </ul> <!-- end #nav -->
+          </ul> -->
 
         </nav> <!-- end #nav-wrap -->
 

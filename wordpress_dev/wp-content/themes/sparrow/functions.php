@@ -1,6 +1,9 @@
 <?php
 add_action('wp_enqueue_scripts', 'theme_styles');
 add_action('wp_enqueue_scripts', 'theme_scripts');
+add_action('after_setup_theme', 'main_nav');
+
+
 
 function theme_styles()
 {
@@ -23,4 +26,9 @@ function theme_scripts()
   wp_enqueue_script('init', get_template_directory_uri() . '/assets/js/init.js', ['jquery'], null, true);
 
   wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr.js', null, null, false);
+}
+
+function main_nav()
+{
+  register_nav_menu('top', 'Меню в шапке');
 }
