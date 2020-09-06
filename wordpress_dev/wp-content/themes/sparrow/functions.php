@@ -2,7 +2,7 @@
 add_action('wp_enqueue_scripts', 'theme_styles');
 add_action('wp_enqueue_scripts', 'theme_scripts');
 add_action('after_setup_theme', 'main_nav');
-
+add_action('after_setup_theme', 'footer_nav');
 
 
 function theme_styles()
@@ -31,4 +31,9 @@ function theme_scripts()
 function main_nav()
 {
   register_nav_menu('top', 'Меню в шапке');
+}
+
+function footer_nav()
+{
+  register_nav_menu('footer', 'Меню в подвале');
 }
