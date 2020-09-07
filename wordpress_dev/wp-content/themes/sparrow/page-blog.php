@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header('blog'); ?>
   <!-- Page Title
    ================================================== -->
   <div id="page-title">
