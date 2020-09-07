@@ -3,7 +3,7 @@ add_action('wp_enqueue_scripts', 'theme_styles');
 add_action('wp_enqueue_scripts', 'theme_scripts');
 add_action('after_setup_theme', 'main_nav');
 add_action('after_setup_theme', 'footer_nav');
-
+add_action('widgets_init', 'register_my_widget');
 
 function theme_styles()
 {
@@ -36,4 +36,19 @@ function main_nav()
 function footer_nav()
 {
   register_nav_menu('footer', 'Меню в подвале');
+}
+
+
+function register_my_widget()
+{
+  register_sidebar(array(
+    'name'          => 'right sidebar',
+    'id'            => "right_sidebar",
+    'description'   => 'Правый сайдбар сайта',
+    'class'         => '',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => "</div>\n",
+    'before_title'  => '<h5 class="widgettitle">',
+    'after_title'   => "</h5>\n",
+  ));
 }
