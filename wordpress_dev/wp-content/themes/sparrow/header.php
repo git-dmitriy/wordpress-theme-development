@@ -10,7 +10,7 @@
   <!--- Basic Page Needs
    ================================================== -->
   <meta charset="<?php bloginfo('charset'); ?>">
-  <title><?php bloginfo('name'); ?></title>
+  
   <meta name="description" content=" <?php bloginfo('description') ?>">
   <meta name="author" content="">
 
