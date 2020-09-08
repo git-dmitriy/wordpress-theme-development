@@ -1,8 +1,7 @@
 <?php
 add_action('wp_enqueue_scripts', 'theme_styles');
 add_action('wp_enqueue_scripts', 'theme_scripts');
-add_action('after_setup_theme', 'main_nav');
-add_action('after_setup_theme', 'footer_nav');
+add_action('after_setup_theme', 'register_navigations');
 add_action('widgets_init', 'register_my_widget');
 
 function theme_styles()
@@ -28,21 +27,19 @@ function theme_scripts()
   wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr.js', null, null, false);
 }
 
-function main_nav()
+function register_navigations()
 {
   register_nav_menu('top', 'Меню в шапке');
+  register_nav_menu('footer', 'Меню в подвале');
+  add_theme_support('title-tag');
 }
 
-function footer_nav()
-{
-  register_nav_menu('footer', 'Меню в подвале');
-}
 
 
 function register_my_widget()
 {
   register_sidebar(array(
-    'name'          => 'right sidebar',
+    'name'          => 'right_sidebar',
     'id'            => "right_sidebar",
     'description'   => 'Правый сайдбар сайта',
     'class'         => '',
