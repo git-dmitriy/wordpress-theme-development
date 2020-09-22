@@ -1,6 +1,6 @@
 <aside id="sidebar">
-
-  <div class="widget widget_search">
+<?php dynamic_sidebar('right_sidebar'); ?>
+  <!-- <div class="widget widget_search">
     <h5>Search</h5>
     <form action="#">
 
@@ -53,6 +53,6 @@
       <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
       <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
     </ul>
-  </div>
+  </div> -->
 
 </aside>
