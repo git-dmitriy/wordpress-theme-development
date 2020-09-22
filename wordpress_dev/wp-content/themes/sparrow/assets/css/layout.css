@@ -107,6 +107,14 @@ img {
    margin-bottom: 24px;
 }
 
+#sidebar .wp-calendar-table {
+   width: 100%;
+}
+
+#sidebar .textwidget {
+   word-break: break-word;
+}
+
 /* Link list */
 
 #sidebar .link-list {
