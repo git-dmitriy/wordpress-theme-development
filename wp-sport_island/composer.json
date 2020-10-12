@@ -1,5 +1,25 @@
 {
-    "require": {
-        "johnpbloch/wordpress": "^5.5"
+  "require": {
+    "johnpbloch/wordpress": "^5.5",
+    "wpackagist-plugin/advanced-custom-fields": "^5.9",
+    "wpackagist-plugin/contact-form-7": "^5.2",
+    "wpackagist-plugin/hc-custom-wp-admin-url": "^1.4",
+    "wpackagist-plugin/rus-to-lat-advanced": "^1.1"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
     }
+  ],
+  "extra": {
+    "installer-paths": {
+      "wordpress/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "wordpress/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  }
 }
