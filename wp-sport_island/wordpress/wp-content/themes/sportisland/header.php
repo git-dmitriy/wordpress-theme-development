@@ -31,8 +31,8 @@
       </address> -->
 
       <?php
-      if (is_active_sidebar('si-header')) {
-        dynamic_sidebar('si-header');
+      if (is_active_sidebar('si-header-contacts')) {
+        dynamic_sidebar('si-header-contacts');
       }
       ?>
       <button class="main-header__mobile">
