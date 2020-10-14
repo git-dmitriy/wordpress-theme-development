@@ -24,8 +24,46 @@ function si_scripts()
 function si_register()
 {
   register_sidebar([
-    'name' => 'Сайдбар в шапке сайта',
-    'id' => 'si-header',
+    'name' => 'Контакты в шапке сайта',
+    'id' => 'si-header-contacts',
+    'before_widget' => null,
+    'after_widget' => null
+  ]);
+
+  register_sidebar([
+    'name' => 'Контакты в подвале сайта',
+    'id' => 'si-footer-contacts',
+    'before_widget' => null,
+    'after_widget' => null
+  ]);
+
+  register_sidebar([
+    'name' => 'Сайдбар в подвале колонка-1',
+    'id' => 'si-footer-col-1',
+    'before_widget' => null,
+    'after_widget' => null
+  ]);
+  register_sidebar([
+    'name' => 'Сайдбар в подвале колонка-2',
+    'id' => 'si-footer-col-2',
+    'before_widget' => null,
+    'after_widget' => null
+  ]);
+  register_sidebar([
+    'name' => 'Сайдбар в подвале колонка-3',
+    'id' => 'si-footer-col-3',
+    'before_widget' => null,
+    'after_widget' => null
+  ]);
+  register_sidebar([
+    'name' => 'Карта',
+    'id' => 'si-footer-map',
+    'before_widget' => null,
+    'after_widget' => null
+  ]);
+  register_sidebar([
+    'name' => 'Данные под картой',
+    'id' => 'si-footer-after-map',
     'before_widget' => null,
     'after_widget' => null
   ]);
