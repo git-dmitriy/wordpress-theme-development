@@ -35,7 +35,7 @@
         <?php the_custom_logo(); ?>
         <span class="slogan">Твой фитнес клуб всегда рядом!</span>
       </p>
-      <nav class="main-navigation">
+      <!-- <nav class="main-navigation">
         <ul class="main-navigation__list">
           <li>
             <a href="services.html">Услуги</a>
@@ -53,7 +53,39 @@
             <a href="contacts.html">Контакты </a>
           </li>
         </ul>
+      </nav> -->
+
+      <?php
+      $locations = get_nav_menu_locations();
+      $menu_id = $locations['menu-footer'];
+      $menu_items = wp_get_nav_menu_items($menu_id, [
+        'order' => 'ASC',
+        'orderby' => 'menu_order'
+      ]);
+
+      // var_dump($menu_items);
+      ?>
+
+      <nav class="main-navigation">
+        <ul class="main-navigation__list">
+          <?php
+          $http_s = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 's' : '') . '//';
+          $url = $http_s . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+          var_dump($http_s);
+          foreach ($menu_items as $item) :
+            $class_text = '';
+            if ($item->url === $url) {
+              $class_text = 'class="active"';
+            }
+          ?>
+            <li <?php echo $class_text; ?>>
+              <a href="<?php echo $item->url; ?>">
+                <?php echo $item->title; ?></a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
       </nav>
+
       <address class="main-header__widget widget-contacts">
         <a href="tel:88007003030" class="widget-contacts__phone"> 8 800 700 30 30 </a>
         <p class="widget-contacts__address"> ул. Приречная 11 </p>
