@@ -16,11 +16,11 @@ function si_setup()
 
 function si_scripts()
 {
-  wp_enqueue_script('js', get_template_directory_uri() . '/assets/js/js.js', [], '1.0', true);
-  wp_enqueue_style('si-styles', get_template_directory_uri() . '/assets/css/styles.css', [], '1.0', 'all');
+  wp_enqueue_script('js', _si_assets_path('js/js.js'), [], '1.0', true);
+  wp_enqueue_style('si-styles', _si_assets_path('css/styles.css'), [], '1.0', 'all');
 }
 
 function _si_assets_path($path)
 {
-  echo get_template_directory_uri() . '/assets/' . $path;
+  return get_template_directory_uri() . '/assets/' . $path;
 }
