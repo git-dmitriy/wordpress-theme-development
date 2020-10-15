@@ -1,8 +1,15 @@
 <?php
 
-require_once(__DIR__ . '/inc/widget-text.php');
-require_once(__DIR__ . '/inc/widget-contacts.php');
-require_once(__DIR__ . '/inc/widget-email.php');
+$widgets = [
+  'widget-text.php',
+  'widget-contacts.php',
+  'widget-email.php'
+];
+
+foreach ($widgets as $widget) {
+  require_once(__DIR__ . '/inc/' . $widget);
+}
+
 
 add_action('after_setup_theme', 'si_setup');
 // // add_filter('show_admin_bar', '__return_false');
