@@ -59,8 +59,11 @@
         </span>
       </div>
       <div class="main-footer__widget">
-        <p class="widget-contact-mail"> Если у вас возникли вопросы, пожалуйста свяжитесь с нами по почте <a href="mailto:sportisland@gmail.ru">sportisland@gmail.ru</a>
-        </p>
+        <?php if (is_active_sidebar('si-footer-col-2')) {
+          dynamic_sidebar('si-footer-col-2');
+        }
+        ?>
+
       </div>
       <div class="main-footer__widget main-footer__widget_social">
         <a target="_blank" href="#" class="widget-social-links fb">
