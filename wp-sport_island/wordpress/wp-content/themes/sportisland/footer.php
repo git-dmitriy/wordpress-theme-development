@@ -57,7 +57,12 @@
   <footer class="main-footer wrapper">
     <div class="row main-footer__row">
       <div class="main-footer__widget main-footer__widget_copyright">
-        <span class="widget-text"> © 2019 Все права защищены. SportIsland </span>
+        <span class="widget-text">
+          <?php if (is_active_sidebar('si-footer-col-1')) {
+            dynamic_sidebar('si-footer-col-1');
+          }
+          ?>
+        </span>
       </div>
       <div class="main-footer__widget">
         <p class="widget-contact-mail"> Если у вас возникли вопросы, пожалуйста свяжитесь с нами по почте <a href="mailto:sportisland@gmail.ru">sportisland@gmail.ru</a>
