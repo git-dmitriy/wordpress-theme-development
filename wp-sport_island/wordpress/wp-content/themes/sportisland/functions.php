@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__ . '/inc/widget-text.php');
+
 add_action('after_setup_theme', 'si_setup');
 // // add_filter('show_admin_bar', '__return_false');
 add_action('wp_enqueue_scripts', 'si_scripts');
@@ -67,6 +69,8 @@ function si_register()
     'before_widget' => null,
     'after_widget' => null
   ]);
+
+  register_widget('si_widget_text');
 }
 
 function _si_assets_path($path)
