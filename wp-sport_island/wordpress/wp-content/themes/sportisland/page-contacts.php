@@ -24,14 +24,14 @@ get_header();
           <img src="<?php echo _si_assets_path('img/map.jpg'); ?>" alt="Карта клуба SportIsland">
           <span class="sr-only"> Карта </span>
         </a>
-        <?php if (is_active_sidebar('si-footer-map')) {
-          dynamic_sidebar('si-footer-map');
+        <?php if (is_active_sidebar('si-map')) {
+          dynamic_sidebar('si-map');
         }
         ?>
       </div>
       <p class="contacts__info">
-        <?php if (is_active_sidebar('si-footer-after-map')) {
-          dynamic_sidebar('si-footer-after-map');
+        <?php if (is_active_sidebar('si-after-map')) {
+          dynamic_sidebar('si-after-map');
         }
         ?>
       </p>

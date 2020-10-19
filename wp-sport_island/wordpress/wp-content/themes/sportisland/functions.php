@@ -71,13 +71,13 @@ function si_register()
   ]);
   register_sidebar([
     'name' => 'Карта',
-    'id' => 'si-footer-map',
+    'id' => 'si-map',
     'before_widget' => null,
     'after_widget' => null
   ]);
   register_sidebar([
     'name' => 'Данные под картой',
-    'id' => 'si-footer-after-map',
+    'id' => 'si-after-map',
     'before_widget' => null,
     'after_widget' => null
   ]);
