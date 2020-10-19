@@ -19,7 +19,7 @@ get_header();
         <a href="blog.html" class="about__link btn">подробнее</a>
       </div>
       <figure class="about__thumb">
-        <img src="img/index__about_img.jpg" alt="Power lifter">
+        <img src="<?php echo _si_assets_path('img/index__about_img.jpg') ?>" alt="Power lifter">
       </figure>
     </div>
   </article>
@@ -39,7 +39,7 @@ get_header();
       <div class="sales__slider slider">
         <section class="slider__slide stock">
           <a href="blog.html" class="stock__link" aria-label="Подробнее об акции скидка 20% на групповые занятия">
-            <img src="img/index__sales_pic1.jpg" alt="" class="stock__thumb">
+            <img src="<?php echo _si_assets_path('img/index__sales_pic1.jpg') ?>" alt="" class="stock__thumb">
             <h3 class="stock__h"> Групповые занятия 20% скидка </h3>
             <p class="stock__text"> Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке. </p>
             <span class="stock__more link-more_inverse link-more">Подробнее</span>
@@ -47,7 +47,7 @@ get_header();
         </section>
         <section class="slider__slide stock">
           <a href="blog.html" class="stock__link" aria-label="Подробнее об акции Скидка 30% на занятия с тренером">
-            <img src="img/index__sales_pic2.jpg" alt="" class="stock__thumb">
+            <img src="<?php echo _si_assets_path('img/index__sales_pic2.jpg') ?> " alt="" class="stock__thumb">
             <h3 class="stock__h"> Скидка 30% на занятия с тренером </h3>
             <p class="stock__text"> Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке. </p>
             <span class="stock__more  link-more_inverse link-more">Подробнее</span>
@@ -55,7 +55,7 @@ get_header();
         </section>
         <section class="slider__slide stock">
           <a href="blog.html" class="stock__link" aria-label="Подробнее об акции Скидка 30% на занятия с тренером">
-            <img src="img/index__sales_pic2.jpg" alt="" class="stock__thumb">
+            <img src="<?php echo _si_assets_path('img/index__sales_pic2.jpg') ?>" alt="" class="stock__thumb">
             <h3 class="stock__h"> Скидка 30% на занятия с тренером </h3>
             <p class="stock__text"> Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке. </p>
             <span class="stock__more  link-more_inverse link-more">Подробнее</span>
