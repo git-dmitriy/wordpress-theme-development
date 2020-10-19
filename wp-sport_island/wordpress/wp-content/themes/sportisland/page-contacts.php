@@ -24,18 +24,16 @@ get_header();
           <img src="<?php echo _si_assets_path('img/map.jpg'); ?>" alt="Карта клуба SportIsland">
           <span class="sr-only"> Карта </span>
         </a>
-        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d20309.075323923767!2d30.4721233!3d50.4851493!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1578565396276!5m2!1sru!2sua" width="800" height="600" style="border:0;" allowfullscreen=""></iframe> -->
-
         <?php if (is_active_sidebar('si-footer-map')) {
           dynamic_sidebar('si-footer-map');
         }
         ?>
       </div>
       <p class="contacts__info">
-        <span class="widget-address"> г. Москва, ул. Приречная 11 </span>
-        <span class="widget-working-time"> Работаем с 09:00 до 20:00 </span>
-        <a href="tel:88007003030" class="widget-phone"> 8 800 700 30 30 </a>
-        <a href="mailto:sportisland@gmail.ru" class="widget-email">sportisland@gmail.ru</a>
+        <?php if (is_active_sidebar('si-footer-after-map')) {
+          dynamic_sidebar('si-footer-after-map');
+        }
+        ?>
       </p>
       <h2 class="page-heading contacts__h_form"> форма </h2>
       <form action="#" class="contacts__form contacts-form">
