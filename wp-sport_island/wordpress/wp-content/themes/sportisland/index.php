@@ -37,11 +37,7 @@ if (is_home()) :
       </section>
 
     <?php else : ?>
-      <section class="last-posts">
-        <div class="wrapper">
-          <h2 class="main-heading last-posts__h"> Нет записей </h2>
-        </div>
-      </section>
+      <?php get_template_part('tmp/no-posts.php') ?>
     <?php endif; ?>
     <section class="categories">
       <div class="wrapper">
