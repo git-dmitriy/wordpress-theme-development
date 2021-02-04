@@ -34,7 +34,13 @@ get_header();
 	C52.216,18.553,51.97,16.611,51.911,16.242z" />
             </svg>
             <span class="like__text">Нравится </span>
-            <span class="like__count">46</span>
+            <span class="like__count">
+              <?php
+              $likes = get_post_meta($id, 'si-like', true);
+              echo $likes ? $likes : 0;
+              ?>
+
+            </span>
           </a>
         </footer>
       </article>
