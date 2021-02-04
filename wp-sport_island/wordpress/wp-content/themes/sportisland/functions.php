@@ -19,6 +19,8 @@ add_action('after_setup_theme', 'si_setup');
 add_action('wp_enqueue_scripts', 'si_scripts');
 add_action('widgets_init', 'si_register');
 add_action('init', 'si_register_types');
+add_action('add_meta_boxes', 'si_meta_boxes');
+
 add_shortcode('si-paste-link', 'si_paste_link');
 
 
@@ -280,6 +282,25 @@ function si_register()
   register_widget('si_widget_iframe');
   register_widget('si_widget_info');
 }
+
+
+function si_meta_boxes()
+{
+  add_meta_box(
+    'si_like',
+    'Количество лайков: ',
+    'si_meta_like_cb',
+    'post'
+  );
+}
+function si_meta_like_cb($post_obj)
+{
+  $likes = get_post_meta($post_obj->ID, 'si-like', true);
+
+  $likes = $likes ?  $likes : 0;
+  echo '<p>' . $likes . '</p>';
+}
+
 
 function _si_assets_path($path)
 {
