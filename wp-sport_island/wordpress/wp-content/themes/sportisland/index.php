@@ -47,10 +47,14 @@ if (is_home()) :
           <h2 class="categories__h main-heading"> категории </h2>
           <ul class="categories-list">
             <?php foreach ($cats as $cat) :
-              $cat_link = get_category_link($cat->cat_ID); ?>
+              $cat_link = get_category_link($cat->cat_ID);
+              $img = get_field('cat_thumbnail', 'category_' . $cat->cat_ID);
+              $img_url = $img['url'];
+              $img_alt = $img['alt'];
+            ?>
               <li class="category">
                 <a href="<?php echo $cat_link; ?>" class="category__link">
-                  <img src="<?php echo _si_assets_path('img/blog__category_thmb1.jpg') ?>" alt="" class="category__thumb">
+                  <img src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>" class="category__thumb">
                   <span class="category__name">
                     <?php echo $cat->name; ?>
                   </span>
