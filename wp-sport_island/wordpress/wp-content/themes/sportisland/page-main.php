@@ -32,49 +32,65 @@ get_header();
       </div>
     </article>
 
+  <?php
+  endif;
+  $sales = get_posts([
+    'numberposts' => -1,
+    'category_name' => 'sales',
+    'meta_key' => 'sales_actual',
+    'meta_value' => '1'
+  ]);
+
+  // var_dump($sales);
+  // var_dump($sales[0]);
+  // var_dump($sales[0]->ID);
+  // var_dump(get_field('sales-actual', $sales[0]->ID));
+  // var_dump(get_post_meta($sales[0]->ID, 'sales-actual', true));
+
+  if ($sales) :
+
+  ?>
+
+    <section class="sales">
+      <div class="wrapper">
+        <header class="sales__header">
+          <h2 class="main-heading sales__h"> акции и скидки </h2>
+          <p class="sales__btns">
+            <button class="sales__btn sales__btn_prev">
+              <span class="sr-only"> Предыдущие акции </span>
+            </button>
+            <button class="sales__btn sales__btn_next">
+              <span class="sr-only"> Следующие акции </span>
+            </button>
+          </p>
+        </header>
+
+        <div class="sales__slider slider">
+          <?php
+          global $post;
+          foreach ($sales as $post) :
+            setup_postdata($post);
+          ?>
+            <section class="slider__slide stock">
+              <a href="<?php the_permalink(); ?>" class="stock__link" aria-label="Подробнее об акции скидка 20% на групповые занятия">
+                <?php the_post_thumbnail('full', ['class' => 'stock__thumb']); ?>
+                <h3 class="stock__h"> <?php the_title(); ?> </h3>
+                <p class="stock__text">
+                  <?php echo get_the_excerpt(); ?>
+                </p>
+                <span class="stock__more link-more_inverse link-more">Подробнее</span>
+              </a>
+            </section>
+          <?php
+          endforeach;
+          wp_reset_postdata();
+          ?>
+        </div>
+      </div>
+    </section>
+
   <?php endif; ?>
 
-  <section class="sales">
-    <div class="wrapper">
-      <header class="sales__header">
-        <h2 class="main-heading sales__h"> акции и скидки </h2>
-        <p class="sales__btns">
-          <button class="sales__btn sales__btn_prev">
-            <span class="sr-only"> Предыдущие акции </span>
-          </button>
-          <button class="sales__btn sales__btn_next">
-            <span class="sr-only"> Следующие акции </span>
-          </button>
-        </p>
-      </header>
-      <div class="sales__slider slider">
-        <section class="slider__slide stock">
-          <a href="blog.html" class="stock__link" aria-label="Подробнее об акции скидка 20% на групповые занятия">
-            <img src="<?php echo _si_assets_path('img/index__sales_pic1.jpg') ?>" alt="" class="stock__thumb">
-            <h3 class="stock__h"> Групповые занятия 20% скидка </h3>
-            <p class="stock__text"> Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке. </p>
-            <span class="stock__more link-more_inverse link-more">Подробнее</span>
-          </a>
-        </section>
-        <section class="slider__slide stock">
-          <a href="blog.html" class="stock__link" aria-label="Подробнее об акции Скидка 30% на занятия с тренером">
-            <img src="<?php echo _si_assets_path('img/index__sales_pic2.jpg') ?> " alt="" class="stock__thumb">
-            <h3 class="stock__h"> Скидка 30% на занятия с тренером </h3>
-            <p class="stock__text"> Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке. </p>
-            <span class="stock__more  link-more_inverse link-more">Подробнее</span>
-          </a>
-        </section>
-        <section class="slider__slide stock">
-          <a href="blog.html" class="stock__link" aria-label="Подробнее об акции Скидка 30% на занятия с тренером">
-            <img src="<?php echo _si_assets_path('img/index__sales_pic2.jpg') ?>" alt="" class="stock__thumb">
-            <h3 class="stock__h"> Скидка 30% на занятия с тренером </h3>
-            <p class="stock__text"> Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке. </p>
-            <span class="stock__more  link-more_inverse link-more">Подробнее</span>
-          </a>
-        </section>
-      </div>
-    </div>
-  </section>
   <section class="cards cards_index">
     <div class="wrapper">
       <h2 class="main-heading cards__h"> клубные карты </h2>
