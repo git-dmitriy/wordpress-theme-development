@@ -21,6 +21,7 @@ add_action('widgets_init', 'si_register');
 add_action('init', 'si_register_types');
 add_action('add_meta_boxes', 'si_meta_boxes');
 add_action('save_post', 'si_save_like_meta');
+add_action('admin_init', 'si_register_slogan');
 
 add_shortcode('si-paste-link', 'si_paste_link');
 
@@ -308,6 +309,32 @@ function si_save_like_meta($post_id)
   }
 }
 
+function si_register_slogan()
+{
+  add_settings_field(
+    'si_option_field_slogan',
+    'Слоган вашего сайта',
+    'si_option_slogan_cb',
+    'general',
+    'default',
+    ['label_for' => 'si_option_field_slogan']
+  );
+
+  register_setting(
+    'general',
+    'si_option_field_slogan',
+    'strval'
+  );
+}
+
+function si_option_slogan_cb($args)
+{
+  $slug = $args['label_for'];
+
+?>
+  <input type="text" id="<?php echo $slug; ?>" value="<?php echo get_option($slug); ?>" name="<?php echo $slug; ?>" class="regular-text code">
+<?php
+}
 
 function _si_assets_path($path)
 {
