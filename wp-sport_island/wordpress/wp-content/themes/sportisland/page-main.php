@@ -9,20 +9,31 @@ get_header();
   <h1 class="sr-only"> Домашняя страница спортклуба SportIsland. </h1>
   <div class="banner">
     <span class="sr-only">Будь в форме!</span>
-    <a href="trainers.html" class="banner__link btn">записаться</a>
+    <a href="<?php echo get_post_type_archive_link('services'); ?>" class="banner__link btn">записаться</a>
   </div>
-  <article class="about">
-    <div class="wrapper about__flex">
-      <div class="about__wrap">
-        <h2 class="main-heading about__h"> кто мы такие </h2>
-        <p class="about__text"> Спортивный клуб SPORTISLAND существует уже более 5 лет. За это время большое количество посетителей получили положительный результат от своих тренировок. Мы предлагаем посещать просторный и укомплектованный тренажерный зал с персональными тренерами, массаж, групповые занятия (фитнес), занятия единоборствами в группах и индивидуально, и большое количество тренировок для детей. В каждый абонемент входит посещение финской сауны </p>
-        <a href="blog.html" class="about__link btn">подробнее</a>
+
+  <?php
+  $post_about = get_post(120);
+  if ($post_about) :
+  ?>
+
+    <article class="about">
+      <div class="wrapper about__flex">
+        <div class="about__wrap">
+          <h2 class="main-heading about__h"><?php echo $post_about->post_title; ?></h2>
+          <p class="about__text">
+            <?php echo $post_about->post_excerpt; ?>
+          </p>
+          <a href="<?php echo get_the_permalink($post_about->ID); ?>" class="about__link btn">подробнее</a>
+        </div>
+        <figure class="about__thumb">
+          <?php echo get_the_post_thumbnail($post_about->ID, 'full'); ?>
+        </figure>
       </div>
-      <figure class="about__thumb">
-        <img src="<?php echo _si_assets_path('img/index__about_img.jpg') ?>" alt="Power lifter">
-      </figure>
-    </div>
-  </article>
+    </article>
+
+  <?php endif; ?>
+
   <section class="sales">
     <div class="wrapper">
       <header class="sales__header">
