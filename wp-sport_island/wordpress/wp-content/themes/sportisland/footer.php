@@ -30,7 +30,9 @@
     <div class="wrapper main-header__wrap">
       <p class="main-header__logolink">
         <?php the_custom_logo(); ?>
-        <span class="slogan">Твой фитнес клуб всегда рядом!</span>
+        <span class="slogan">
+          <?php echo get_option('si_option_field_slogan'); ?>
+        </span>
       </p>
       <?php
       wp_nav_menu([
