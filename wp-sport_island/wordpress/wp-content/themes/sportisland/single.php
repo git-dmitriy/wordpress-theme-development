@@ -58,7 +58,6 @@ get_header();
                 let hasLike = false;
                 try {
                   hasLike = localStorage.getItem('liked').split(',').includes(id);
-
                 } catch (e) {
                   console.log(e);
                 }
@@ -76,10 +75,13 @@ get_header();
                 likeBtn.disabled = true;
 
                 let hasLike = getAboutLike(postID);
+
                 const data = new FormData();
+
                 data.append('action', 'post-likes');
 
                 let todo = hasLike ? 'minus' : 'plus';
+
                 data.append('todo', todo);
                 data.append('id', postID);
                 const xhr = new XMLHttpRequest();
@@ -93,14 +95,14 @@ get_header();
                     let newData = '';
                     if (hasLike) {
                       newData = localData.split(',')
-                        .filter(function(el) {
-                          return el !== postID;
+                        .filter(function(id) {
+                          return id !== postID;
                         })
                         .join(',');
                     } else {
                       newData = localData.split(',')
-                        .filter(function(el) {
-                          return el !== '';
+                        .filter(function(id) {
+                          return id !== '';
                         })
                         .concat(postID)
                         .join(',');
