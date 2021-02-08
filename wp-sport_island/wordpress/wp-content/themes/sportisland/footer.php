@@ -4,7 +4,8 @@
       <button class="modal__closer">
         <span class="sr-only">Закрыть</span>
       </button>
-      <form action="#" class="modal-form__form">
+      <!--right here  -->
+      <form method="POST" action="<?php echo admin_url('admin-post.php'); ?>" class="modal-form__form">
         <h2 class="modal-content__h"> Отправить заявку </h2>
         <p> Оставьте свои контакты и менеджер с Вами свяжется </p>
         <p>
@@ -19,6 +20,7 @@
             <input type="text" name="si-user-phone" placeholder="Телефон" pattern="^\+{0,1}[0-9]{4,}$" required>
           </label>
         </p>
+        <input type="hidden" name="action" value="si-modal-form">
         <button class="btn" type="submit">Отправить</button>
         <input type="hidden" name="action" value="si-modal-form">
       </form>
