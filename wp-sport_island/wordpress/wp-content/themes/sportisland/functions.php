@@ -24,6 +24,8 @@ add_action('save_post', 'si_save_like_meta');
 add_action('admin_init', 'si_register_slogan');
 add_action('admin_post_nopriv_si-modal-form', 'si_modal_form_handler');
 add_action('admin_post_si-modal-form', 'si_modal_form_handler');
+add_action('wp_ajax_nopriv_post-likes', 'si_likes');
+add_action('wp_ajax_post-likes', 'si_likes');
 
 
 add_shortcode('si-paste-link', 'si_paste_link');
@@ -334,6 +336,12 @@ function si_register_slogan()
 function si_modal_form_handler()
 {
   header('location' . home_url());
+}
+
+function si_likes()
+{
+  echo 'We received everything';
+  wp_die();
 }
 
 function si_option_slogan_cb($args)
