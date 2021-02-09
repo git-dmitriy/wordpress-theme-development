@@ -332,7 +332,7 @@ function si_meta_boxes()
     'si_order_date' => 'Дата заявки: ',
     'si_order_name' => 'Имя клиента: ',
     'si_order_phone' => 'Номер телефона: ',
-    'siorder_choice' => 'Выбор клиента: '
+    'si_order_choice' => 'Выбор клиента: '
   ];
 
   foreach ($fields as $slug => $text) {
@@ -351,8 +351,23 @@ function si_meta_boxes()
 function si_order_fields_cb($post_obj, $slug)
 {
   $slug = $slug['args'];
-  $data = get_post_meta($post_obj->ID, $slug, true);
-  $data = $data ?  $data : 'Нет данных';
+
+  switch ($slug) {
+    case 'si_order_date':
+      $data =  $post_obj->post_date;
+      break;
+    case 'si_order_choice':
+      $id = get_post_meta($post_obj->ID, $slug, true);
+      $title = get_the_title($id);
+      $type = get_post_type_object(get_post_type($id))->labels->name;
+      $data = 'Клиент выбрал: <strong>' . $title . '</strong>. <br/> Из раздела: <strong>' . $type . '</strong>';
+      break;
+    default:
+      $data = get_post_meta($post_obj->ID, $slug, true);
+      $data = $data ?  $data : 'Нет данных';
+      break;
+  }
+
   echo '<p>' . $data . '</p>';
 }
 
