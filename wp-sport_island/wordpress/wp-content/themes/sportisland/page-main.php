@@ -142,7 +142,7 @@ get_header();
                   </li>
                 <?php endforeach; ?>
               </ul>
-              <a data-post-id="99" href="#modal-form" class="card__buy btn btn_modal">купить</a>
+              <a data-post-id="<?php echo $id; ?>" href="#modal-form" class="card__buy btn btn_modal">купить</a>
             </li>
 
           <?php
