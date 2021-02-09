@@ -27,11 +27,13 @@ add_action('admin_post_si-modal-form', 'si_modal_form_handler');
 add_action('wp_ajax_nopriv_post-likes', 'si_likes');
 add_action('wp_ajax_post-likes', 'si_likes');
 
+add_action('manage_posts_custom_column', 'si_like_column', 5, 2);
 
 add_shortcode('si-paste-link', 'si_paste_link');
 
 
 add_filter('si_widget_text', 'do_shortcode');
+add_filter('manage_posts_columns', 'si_add_col_likes');
 
 function si_setup()
 {
@@ -367,6 +369,23 @@ function si_option_slogan_cb($args)
 ?>
   <input type="text" id="<?php echo $slug; ?>" value="<?php echo get_option($slug); ?>" name="<?php echo $slug; ?>" class="regular-text code">
 <?php
+}
+
+function si_like_column($col_name, $id)
+{
+  if ($col_name !== 'col_like') return;
+  $likes = get_post_meta($id, 'si-like', true);
+  echo $likes ? $likes : 0;
+}
+
+function si_add_col_likes($defaults)
+{
+  $types = get_current_screen();
+
+  if ($types->post_type === 'post') {
+    $defaults['col_like'] = 'Лайки';
+  }
+  return $defaults;
 }
 
 function _si_assets_path($path)
