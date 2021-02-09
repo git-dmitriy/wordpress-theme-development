@@ -356,13 +356,6 @@ function si_order_fields_cb($post_obj, $slug)
   echo '<p>' . $data . '</p>';
 }
 
-// function si_order_data_cb($post_obj)
-// {
-//   $date = get_post_meta($post_obj->ID, 'is_order_date', true);
-//   $data = $date ? $date : 0;
-//   echo '<span>' . $date . '</span>';
-// }
-
 function si_register_slogan()
 {
   add_settings_field(
@@ -384,7 +377,33 @@ function si_register_slogan()
 
 function si_modal_form_handler()
 {
-  header('location' . home_url());
+  $name = $_POST['si-user-name'] ? $_POST['si-user-name'] : 'Аноним';
+  $phone = $_POST['si-user-phone'] ? $_POST['si-user-phone'] : false;
+  $choice = $_POST['form-post-id'] ? $_POST['form-post-id'] : 'empty';
+
+  if ($phone) {
+    $name = wp_strip_all_tags($name);
+    $phone = wp_strip_all_tags($phone);
+    $choice = wp_strip_all_tags($choice);
+    $id = wp_insert_post(wp_slash([
+      'post_title' => 'Заявка № ',
+      'post_type' => 'orders',
+      'post_status' => 'publish',
+      'meta_input' => [
+        'si_order_name' => $name,
+        'si_order_phone' => $phone,
+        'si_order_choice' => $choice
+      ]
+    ]));
+    if ($id !== 0) {
+      wp_update_post([
+        'ID' => $id,
+        'post_title' => 'Заявка № ' . $id,
+      ]);
+      update_field('order_status', 'new', $id);
+    }
+  }
+  header('Location: ' . home_url());
 }
 
 function si_likes()
