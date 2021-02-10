@@ -35,25 +35,6 @@ get_header();
           </p>
 
           <?php the_content(); ?>
-          <form action="#" class="contacts__form contacts-form">
-            <label class="contacts-form__label">
-              <span class="sr-only"> Имя </span>
-              <input type="text" class="contacts-form__input" placeholder="Ваше имя">
-            </label>
-            <label class="contacts-form__label">
-              <span class="sr-only"> Телефон </span>
-              <input type="text" class="contacts-form__input" placeholder="Ваш телефон">
-            </label>
-            <label class="contacts-form__label">
-              <span class="sr-only"> Почта </span>
-              <input type="text" class="contacts-form__input" placeholder="Ваша почта">
-            </label>
-            <label class="contacts-form__label contacts-form__label_textarea">
-              <span class="sr-only"> Комментарий </span>
-              <textarea name="" id="" cols="30" rows="10" class="contacts-form__textarea" placeholder="Ваше сообщение"></textarea>
-            </label>
-            <button class="contacts-form__btn btn"> Отправить </button>
-          </form>
 
         </div>
     <?php
