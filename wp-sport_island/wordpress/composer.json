@@ -24,9 +24,16 @@
   },
   "require": {
     "php": ">=5.6.20",
-    "ext-json": "*"
+    "ext-json": "*",
+    "wpackagist-plugin/flamingo": "^2.2"
   },
   "provide": {
     "wordpress/core-implementation": "5.5.1"
-  }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ]
 }
