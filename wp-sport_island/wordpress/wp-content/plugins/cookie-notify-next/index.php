@@ -74,5 +74,59 @@ function cnn_register_menu()
 
 function cnn_admin_page_view()
 {
-  echo '<h1>Hello world!</h1>';
+
+  if (!empty($_POST)) {
+    update_option('cnn_bg', $_POST['cnn_bg']);
+    update_option('cnn_color', $_POST['cnn_color']);
+    update_option('cnn_text', $_POST['cnn_text']);
+    update_option('cnn_position', $_POST['cnn_position']);
+  }
+
+  $bg = get_option('cnn_bg');
+  $color = get_option('cnn_color');
+  $text = get_option('cnn_text');
+  $position = get_option('cnn_position');
+
+?>
+  <h2>Настройки уведомления:</h2>
+  <form method="POST">
+    <p>
+      <label>
+        Введите значение для цвета фона:
+        <input type="text" name="cnn_bg" value="<?php echo $bg; ?>">
+      </label>
+    </p>
+    <p>
+      <label>
+        Введите значение для цвета текста:
+        <input type="text" name="cnn_color" value="<?php echo $color; ?>">
+      </label>
+    </p>
+    <p>
+      <label>
+        Введите текст уведомления:
+        <input type="text" name="cnn_text" value="<?php echo $text; ?>">
+      </label>
+    </p>
+
+
+    <fieldset>
+      <legend>
+        Выберите положение для уведомления:
+      </legend>
+      <br>
+      <label>
+        Сверху
+        <input type="radio" name="cnn_position" value="top" <?php checked('top', $position, true);  ?>>
+      </label>
+      <label>
+        Снизу
+        <input type="radio" name="cnn_position" value="bottom" <?php checked('bottom', $position, true);  ?>>
+      </label>
+    </fieldset>
+    <br>
+    <br>
+    <button type="submit">Сохранить настройки</button>
+  </form>
+<?php
 }
