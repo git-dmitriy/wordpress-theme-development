@@ -122,7 +122,7 @@ function cnn_admin_page_view()
     <br>
     <button type="submit">Сохранить настройки</button>
   </form>
-<?php
+  <?php
 }
 
 
@@ -130,57 +130,85 @@ add_action('wp_footer', 'cnn_front_page_view');
 
 function cnn_front_page_view()
 {
-  $bg = get_option('cnn_bg');
-  $color = get_option('cnn_color');
-  $text = get_option('cnn_text');
-  $position = get_option('cnn_position');
-  $css = $position . ': 0;'; // top|bottom: 0;
-?>
+  if ($_COOKIE['cnn_cookie_agreement'] !== 'agreed') :
+    $bg = get_option('cnn_bg');
+    $color = get_option('cnn_color');
+    $text = get_option('cnn_text');
+    $position = get_option('cnn_position');
+    $css = $position . ': 0;'; // top|bottom: 0;
+  ?>
 
-  <div class="alert">
-    <div class="wrapper">
-      <?php echo $text; ?>
-      <br>
-      <button class="alert__btn">Я согласен</button>
+    <div class="alert">
+      <div class="wrapper">
+        <?php echo $text; ?>
+        <br>
+        <button class="alert__btn">Я согласен</button>
+      </div>
+      <style>
+        .alert {
+          color: <?php echo $color; ?>;
+          background-color: <?php echo $bg; ?>;
+          position: fixed;
+          <?php echo $css; ?>;
+          left: 0;
+          right: 0;
+          z-index: 9999999;
+          text-align: center;
+          font-size: 30px;
+          padding: 20px 10px;
+        }
+
+        .alert button {
+          border: 1px solid <?php echo $color; ?>;
+          background-color: transparent;
+          font: inherit;
+          font-size: 14px;
+          color: <?php echo $color; ?>;
+          padding: 10px 20px;
+          cursor: pointer;
+          transition: .3s;
+        }
+
+        .alert button:hover {
+          background-color: <?php echo $color; ?>;
+          color: <?php echo $bg; ?>;
+        }
+
+        .alert button:active {
+          background-color: <?php echo $bg; ?>;
+          color: <?php echo $color; ?>;
+        }
+      </style>
+      <script>
+        const url = "<?php echo esc_url(admin_url('admin-ajax.php')) ?>";
+        const btn = document.querySelector('.alert__btn');
+        console.log('btn:', btn.parentElement.parentElement)
+        btn.addEventListener('click', function(e) {
+          const data = new FormData();
+          data.append('action', 'cnn_cookie_ajax');
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', url);
+          xhr.send(data);
+          xhr.addEventListener('readystatechange', function() {
+            if (xhr.readyState !== 4) return;
+            if (xhr.status === 200) {
+              btn.parentElement.parentElement.remove();
+            }
+          })
+        });
+      </script>
     </div>
-    <style>
-      .alert {
-        color: <?php echo $color; ?>;
-        background-color: <?php echo $bg; ?>;
-        position: fixed;
-        <?php echo $css; ?>;
-        left: 0;
-        right: 0;
-        z-index: 9999999;
-        text-align: center;
-        font-size: 30px;
-        padding: 20px 10px;
-      }
-
-      .alert button {
-        border: 1px solid <?php echo $color; ?>;
-        background-color: transparent;
-        font: inherit;
-        font-size: 14px;
-        color: <?php echo $color; ?>;
-        padding: 10px 20px;
-        cursor: pointer;
-        transition: .3s;
-      }
-
-      .alert button:hover {
-        background-color: <?php echo $color; ?>;
-        color: <?php echo $bg; ?>;
-      }
-
-      .alert button:active {
-        background-color: <?php echo $bg; ?>;
-        color: <?php echo $color; ?>;
-      }
-    </style>
-  </div>
-
 
 <?php
+  endif;
+}
 
+add_action('wp_ajax_nopriv_cnn_cookie_ajax', 'cnn_ajax_handler');
+add_action('wp_ajax_cnn_cookie_ajax', 'cnn_ajax_handler');
+
+function cnn_ajax_handler()
+{
+  setcookie('cnn_cookie_agreement', 'agreed', time() + 60 * 60 * 24 * 30, '/');
+  echo 'ok';
+  wp_die();
 }
