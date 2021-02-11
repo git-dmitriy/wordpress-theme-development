@@ -25,7 +25,8 @@
   "require": {
     "php": ">=5.6.20",
     "ext-json": "*",
-    "wpackagist-plugin/flamingo": "^2.2"
+    "wpackagist-plugin/flamingo": "^2.2",
+    "wpackagist-plugin/breadcrumb-navxt": "^6.6"
   },
   "provide": {
     "wordpress/core-implementation": "5.5.1"
