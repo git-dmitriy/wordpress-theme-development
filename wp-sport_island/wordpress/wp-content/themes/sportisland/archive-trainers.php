@@ -4,14 +4,7 @@ get_header();
 
 <main class="main-content">
   <div class="wrapper">
-    <ul class="breadcrumbs">
-      <li class="breadcrumbs__item breadcrumbs__item_home">
-        <a href="index.html" class="breadcrumbs__link">Главная</a>
-      </li>
-      <li class="breadcrumbs__item">
-        <a href="trainers.html" class="breadcrumbs__link">Тренеры</a>
-      </li>
-    </ul>
+  <?php get_template_part('tmp/breadcrumbs'); ?>
   </div>
   <section class="trainers">
     <div class="wrapper">

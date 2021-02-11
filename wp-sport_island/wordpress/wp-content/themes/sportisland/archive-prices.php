@@ -5,14 +5,7 @@ get_header();
 <main class="main-content">
   <h1 class="sr-only">Цены на наши услуги и клубные карты</h1>
   <div class="wrapper">
-    <ul class="breadcrumbs">
-      <li class="breadcrumbs__item breadcrumbs__item_home">
-        <a href="index.html" class="breadcrumbs__link">Главная</a>
-      </li>
-      <li class="breadcrumbs__item">
-        <a href="prices.html" class="breadcrumbs__link">Цены</a>
-      </li>
-    </ul>
+    <?php get_template_part('tmp/breadcrumbs'); ?>
     <section class="prices">
       <h2 class="main-heading prices__h">Цены</h2>
       <table>

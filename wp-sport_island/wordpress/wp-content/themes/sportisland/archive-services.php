@@ -5,14 +5,7 @@ get_header();
 <main class="main-content">
   <h1 class="sr-only">Услуги</h1>
   <div class="wrapper">
-    <ul class="breadcrumbs">
-      <li class="breadcrumbs__item breadcrumbs__item_home">
-        <a href="index.html" class="breadcrumbs__link">Главная</a>
-      </li>
-      <li class="breadcrumbs__item">
-        <a href="services.html" class="breadcrumbs__link">Услуги</a>
-      </li>
-    </ul>
+  <?php get_template_part('tmp/breadcrumbs'); ?>
 
     <?php
 
