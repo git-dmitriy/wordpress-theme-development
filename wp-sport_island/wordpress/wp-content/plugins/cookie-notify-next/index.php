@@ -49,13 +49,7 @@ function cnn_deactivation()
   }
 }
 
-// add_action('wp_footer', function () {
-//   $options = options();
 
-//   foreach ($options as $key => $value) {
-//     echo $key . '=>' .  get_option($key, $value) . '<br>';
-//   }
-// });
 
 
 add_action('admin_menu', 'cnn_register_menu');
@@ -129,4 +123,64 @@ function cnn_admin_page_view()
     <button type="submit">Сохранить настройки</button>
   </form>
 <?php
+}
+
+
+add_action('wp_footer', 'cnn_front_page_view');
+
+function cnn_front_page_view()
+{
+  $bg = get_option('cnn_bg');
+  $color = get_option('cnn_color');
+  $text = get_option('cnn_text');
+  $position = get_option('cnn_position');
+  $css = $position . ': 0;'; // top|bottom: 0;
+?>
+
+  <div class="alert">
+    <div class="wrapper">
+      <?php echo $text; ?>
+      <br>
+      <button class="alert__btn">Я согласен</button>
+    </div>
+    <style>
+      .alert {
+        color: <?php echo $color; ?>;
+        background-color: <?php echo $bg; ?>;
+        position: fixed;
+        <?php echo $css; ?>;
+        left: 0;
+        right: 0;
+        z-index: 9999999;
+        text-align: center;
+        font-size: 30px;
+        padding: 20px 10px;
+      }
+
+      .alert button {
+        border: 1px solid <?php echo $color; ?>;
+        background-color: transparent;
+        font: inherit;
+        font-size: 14px;
+        color: <?php echo $color; ?>;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: .3s;
+      }
+
+      .alert button:hover {
+        background-color: <?php echo $color; ?>;
+        color: <?php echo $bg; ?>;
+      }
+
+      .alert button:active {
+        background-color: <?php echo $bg; ?>;
+        color: <?php echo $color; ?>;
+      }
+    </style>
+  </div>
+
+
+<?php
+
 }
