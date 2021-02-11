@@ -4,14 +4,7 @@ get_header();
 
 <main class="main-content">
   <div class="wrapper">
-    <ul class="breadcrumbs">
-      <li class="breadcrumbs__item breadcrumbs__item_home">
-        <a href="index.html" class="breadcrumbs__link">Главная</a>
-      </li>
-      <li class="breadcrumbs__item">
-        <a href="schedule.html" class="breadcrumbs__link">Расписание</a>
-      </li>
-    </ul>
+  <?php get_template_part('tmp/breadcrumbs'); ?>
     <h1 class="main-heading schedule-page__h">расписание</h1>
     <div class="tabs">
       <ul class="tabs-btns">
