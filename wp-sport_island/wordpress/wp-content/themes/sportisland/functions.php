@@ -218,7 +218,8 @@ function si_register()
       'menu_position'       => 20,
       'menu_icon'           => 'dashicons-media-spreadsheet',
       'hierarchical'        => false,
-      'supports'            => ['title'],
+      'show_in_rest'       => true,
+      'supports'            => ['title', 'editor'],
       'has_archive' => true
     ]);
 
