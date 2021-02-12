@@ -8,7 +8,23 @@ get_header();
     <?php get_template_part('tmp/breadcrumbs'); ?>
     <section class="prices">
       <h2 class="main-heading prices__h">Цены</h2>
-      <table>
+
+      <?php
+      if (have_posts()) :
+        while (have_posts()) :
+          the_post();
+          if (!get_field('prices_show')) {
+            continue;
+          }
+          the_content();
+
+        endwhile;
+      else :
+        get_template_part('tmp/no-posts.php');
+      endif;
+      ?>
+
+      <!-- <table>
         <thead>
           <tr>
             <td>Услуга</td>
@@ -64,7 +80,7 @@ get_header();
             </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </section>
 
     <?php
